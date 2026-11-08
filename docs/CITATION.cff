@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use ADGB, cite the software release and the related work listed in the README. Do not cite an invented paper or DOI."
+title: "Agent Decomposition Granularity Benchmark (ADGB)"
+version: 0.1.0
+date-released: 2026-11-08
+authors:
+  - name: "Muzammal Hussain"
+    affiliation: "Masmatix Innovations"
+license: MIT
+type: software
