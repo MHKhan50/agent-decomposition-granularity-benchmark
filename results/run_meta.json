@@ -1,0 +1,19 @@
+{
+  "benchmark": "adgb-clinic-decomposition",
+  "machine": "arm64",
+  "models": {
+    "llama3.1:8b": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "qwen2.5:3b": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b"
+  },
+  "n_items": 32,
+  "ollama_version": "0.40.15",
+  "options": {
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "seed": 42,
+    "temperature": 0.0
+  },
+  "python": "3.9.6",
+  "system": "Darwin",
+  "version": "0.2.0"
+}
