@@ -1,22 +1,25 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
 import json
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from adgb import __version__
 from adgb.experiment import evaluate_policies
 from adgb.io import RESULT_FIELDS, read_csv, write_csv
 from adgb.model import TinyMLP
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Train the tiny neural selector and evaluate ADGB policies")
-    parser.add_argument("--data", default="data")
+    parser.add_argument("--data", default="synthetic_data")
     parser.add_argument("--epochs", type=int, default=30)
     parser.add_argument("--hidden", type=int, default=12)
     parser.add_argument("--seed", type=int, default=123)
-    parser.add_argument("--out", default="results")
+    parser.add_argument("--out", default="synthetic_results")
     args = parser.parse_args()
     train_path = os.path.join(args.data, "train.csv")
     test_path = os.path.join(args.data, "test.csv")
@@ -31,7 +34,7 @@ def main():
     with open(os.path.join(args.out, "run_metadata.json"), "w", encoding="utf-8") as handle:
         json.dump({
             "benchmark": "ADGB",
-            "version": "0.1.0",
+            "version": __version__,
             "train_episodes": len(train),
             "test_episodes": len(test),
             "epochs": args.epochs,

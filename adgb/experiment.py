@@ -1,7 +1,7 @@
 """Policy evaluation for decomposition-granularity selection."""
 from __future__ import annotations
 
-from typing import Dict, Iterable, List, Sequence
+from typing import Dict, List, Sequence
 
 from .model import TinyMLP
 from .simulator import FEATURES, GRANULARITIES, evaluate_granularity

@@ -1,7 +1,10 @@
 __pycache__/
 *.py[cod]
-data/
-results/
+.pytest_cache/
+.venv/
+synthetic_data/
+synthetic_results/
 smoke_data/
 smoke_results/
+kaggle/1-upload-these/
 .DS_Store

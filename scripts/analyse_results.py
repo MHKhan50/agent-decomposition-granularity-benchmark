@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
 import os
 import sys
@@ -8,9 +10,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from adgb.io import read_csv
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Summarise ADGB policy metrics")
-    parser.add_argument("--input", default="results/episode_metrics.csv")
+    parser.add_argument("--input", default="synthetic_results/episode_metrics.csv")
     args = parser.parse_args()
     rows = read_csv(args.input)
     groups = defaultdict(list)

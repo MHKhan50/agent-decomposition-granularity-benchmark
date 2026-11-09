@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
 import os
 import sys
@@ -8,13 +10,13 @@ from adgb.io import DATA_FIELDS, write_csv
 from adgb.simulator import generate_dataset
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(description="Generate reproducible ADGB synthetic train/test CSV files")
     parser.add_argument("--train-episodes", type=int, default=600, help="episodes per training seed")
     parser.add_argument("--test-episodes", type=int, default=300, help="episodes per test seed")
     parser.add_argument("--train-seeds", type=int, nargs="+", default=[17, 29, 43])
     parser.add_argument("--test-seeds", type=int, nargs="+", default=[71, 101])
-    parser.add_argument("--out", default="data")
+    parser.add_argument("--out", default="synthetic_data")
     args = parser.parse_args()
     if set(args.train_seeds) & set(args.test_seeds):
         parser.error("training and test seeds must be disjoint")

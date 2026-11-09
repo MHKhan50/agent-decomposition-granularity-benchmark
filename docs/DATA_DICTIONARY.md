@@ -1,4 +1,6 @@
-# Data Dictionary — ADGB v0.1.0
+# Data Dictionary
+
+## Synthetic simulator
 
 The generated `train.csv` and `test.csv` contain one row per synthetic task episode. Values for the nine observable features are sampled independently from Uniform[0, 1]. Hidden shocks affect the simulated outcome but are not input features to the MLP.
 
@@ -23,7 +25,7 @@ The generated `train.csv` and `test.csv` contain one row per synthetic task epis
 | `objective_g4` | float | Realized objective if split into four subtasks. | No |
 | `objective_g8` | float | Realized objective if split into eight subtasks. | No |
 
-The generated `results/episode_metrics.csv` contains one row per policy per test episode:
+The generated `synthetic_results/episode_metrics.csv` contains one row per policy per test episode:
 
 | Field | Definition |
 |---|---|
@@ -38,3 +40,34 @@ The generated `results/episode_metrics.csv` contains one row per policy per test
 | `decomposition_overhead` | Simulated decomposition/setup overhead. |
 | `merge_conflict_rate` | Synthetic integration-risk proxy in [0, 1]. |
 | `deadline_met` | 1 if simulated makespan meets the episode deadline, otherwise 0. |
+
+## Local LLM run
+
+`tasks/clinic_tasks.jsonl` has one row per invented case: `item_id`, `dependency`, `template`, `truth` (known answers) and `notes` (English and Roman Urdu text).
+
+`results/runs.jsonl` has one row per model call:
+
+| Field | Definition |
+|---|---|
+| `key` | Unique call identifier used to resume a run. |
+| `model`, `language`, `item_id`, `dependency` | Condition of the call. |
+| `granularity`, `chunk_index` | Number of sub-calls in this form, and the position of this one. |
+| `fields` | Fields requested in this call. |
+| `known` | Earlier answers given to this call (chained forms only). |
+| `prompt_chars` | Prompt length in characters. |
+| `response`, `parsed` | Raw reply, and the JSON object or null. |
+| `prompt_tokens`, `output_tokens` | Counts reported by Ollama. |
+| `seconds` | Total duration reported by Ollama. |
+
+`results/per_run.csv` has one row per finished form:
+
+| Field | Definition |
+|---|---|
+| `fields_correct`, `n_fields`, `field_accuracy` | Correct fields, total fields and their ratio. |
+| `all_correct` | 1 if every field is correct. |
+| `step_correct`, `step_total` | Computed fields that were right, among those whose inputs were right. |
+| `parse_failures` | Sub-calls whose reply had no valid JSON object. |
+| `calls` | Number of sub-calls. |
+| `prompt_chars`, `output_tokens` | Sums over sub-calls. |
+| `seconds_total` | Sum of sub-call durations. |
+| `seconds_ideal_parallel` | Longest sub-call for independent forms, sum for chained forms. |

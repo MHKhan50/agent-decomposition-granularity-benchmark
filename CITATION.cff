@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Agent Decomposition Granularity Benchmark (ADGB)"
+version: 0.2.0
+date-released: 2026-11-09
+type: software
+license: MIT
+repository-code: "https://github.com/MHKhan50/agent-decomposition-granularity-benchmark"
+authors:
+  - family-names: "Hussain"
+    given-names: "Muzammal"
+    orcid: "https://orcid.org/0009-0001-2570-5686"

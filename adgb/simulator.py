@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import random
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, List, Sequence
 
 FEATURES = (
     "complexity",
@@ -71,12 +71,12 @@ def evaluate_granularity(row: Dict[str, float], granularity: int) -> Dict[str, f
         + float(row.get("merge_shock", 0.0)) * split_fraction
     )
 
-    coarse_loss = (
+    fragmentation_loss = (
         0.10 * x["complexity"] * x["heterogeneity"] * (1.0 - 1.0 / granularity)
         + 0.07 * x["spec_ambiguity"] * (1.0 - 1.0 / granularity)
     )
     context_gain = 0.06 * x["context_pressure"] * x["complexity"] * (1.0 - 1.0 / granularity)
-    quality = clamp(1.0 - coarse_loss - 0.10 * merge_conflict + context_gain, 0.0, 1.0)
+    quality = clamp(1.0 - fragmentation_loss - 0.10 * merge_conflict + context_gain, 0.0, 1.0)
 
     makespan = (
         execution_time
