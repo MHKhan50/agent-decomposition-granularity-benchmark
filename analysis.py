@@ -24,8 +24,9 @@ PER_RUN_FIELDS = [
     "prompt_chars", "output_tokens", "seconds_total", "seconds_ideal_parallel",
 ]
 Row = Dict[str, object]
-ROYAL, ORANGE, NAVY = "#2b5ce6", "#c8551b", "#0f1932"
-MODEL_STYLE = [(ROYAL, "o"), (ORANGE, "s")]
+# House palette, in this order: blue, yellow, red, light green
+BLUE, YELLOW, RED, GREEN, NAVY = "#1F4E9C", "#E3A800", "#C8102E", "#5FA65A", "#0f1932"
+MODEL_STYLE = [(BLUE, "o"), (YELLOW, "s"), (RED, "^"), (GREEN, "D")]
 
 
 def load_calls(path: str) -> List[Row]:
