@@ -1,5 +1,7 @@
 # Agent Decomposition Granularity Benchmark (ADGB)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24167596.svg)](https://doi.org/10.5281/zenodo.24167596)
+
 How finely should an agent split a task before delegating it? ADGB studies this choice in two parts: a controlled simulator, and a real run of small local language models on clinic forms.
 
 ## Research question
