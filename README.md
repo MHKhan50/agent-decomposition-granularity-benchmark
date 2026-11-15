@@ -100,6 +100,10 @@ See `docs/EXPERIMENTAL_PROTOCOL.md` and `docs/DATA_DICTIONARY.md`.
 - `tests/`: offline tests
 - `docs/`: protocol, data dictionary, limitations, related work
 
+## Clinician review
+
+A physiotherapist checked all 32 cases after the runs: all expected values correct and both languages equal in facts; the 16 billing notes realistic, with "fee per session" clear when the whole note is read; the 16 independent notes not realistic because of the distractor line about the patient's brother. Details and the filled sheet: [`clinician-review/`](clinician-review/).
+
 ## Limitations
 
 The cases are template-written and invented, 32 per model and language, so intervals are wide and the findings may not carry over to real clinic notes. Two small models on one Mac are not a general result. See `docs/LIMITATIONS.md` for the full list.

@@ -100,6 +100,8 @@ is derived from the sequential run, not measured. Intervals are 95\% percentile 
 (2,000 resamples)~\cite{efron1993bootstrap}; comparisons with one call and between languages are paired on the same
 cases.
 
+\paragraph{Clinician review.} After the runs, a physiotherapist read all 32 cases in both languages with the expected form values. She marked every expected value correct and both notes of every case equal in facts. She judged the 16 chained (billing) notes realistic and, in all 16, found ``fee per session'' clear without the discount when the whole note is read. She judged none of the 16 independent notes realistic: every comment names the distractor line about the patient's brother's age and earlier fee, which would not appear in a real physiotherapy note.
+
 \section{Results}
 
 All 512 forms finished and no reply failed to parse. Figure~\ref{fig:acc} and Table~\ref{tab:paired} summarise the
@@ -206,7 +208,7 @@ nearly harmless but bought speed only with parallel hardware, which a single cli
 \paragraph{Splitting removes disambiguating context.} The discounted-fee error shows the mechanism. Fields on a form
 explain each other: asking for a discount and a gross fee alongside the fee tells the model which fee is meant. A
 sub-call that sees one field inherits none of that. Decomposition frameworks usually assume sub-tasks are
-self-contained; for extraction from notes they rarely are.
+self-contained; for extraction from notes they rarely are. This fits the clinician review: reading the whole note, our reviewer found ``fee per session'' clear in all 16 chained notes.
 
 \paragraph{If you split, compute in code.} The chained fields here are arithmetic on extracted values. Once the model
 has extracted sessions, weeks, fee and discount, code can compute the rest exactly. This avoids both the propagation of
@@ -222,8 +224,9 @@ The cases are template-written and invented: 16 per dependency type, model and l
 real clinic notes may behave differently. Only two small models on one Mac were tested, with one seed at temperature 0.
 The split is mechanical (equal consecutive groups); an agent that chooses its own split might group related fields.
 The fee explanation is supported by the error pattern but not yet by the planned rerun with a clarified description.
-Parallel time is derived, not measured. Instructions were in English for both note languages, and no clinician
-reviewed the cases.
+Parallel time is derived, not measured. Instructions were in English for both note languages. One physiotherapist, who is married to the author, reviewed the
+cases after the runs and judged every independent note unrealistic because of the brother distractor, so results on
+independent forms measure robustness to an artificial distractor more than performance on real notes.
 
 \section{Conclusion}
 
@@ -233,9 +236,15 @@ because a fee field read in isolation lost the context that defined it, and the 
 computed from it. Roman Urdu notes made extraction harder at every granularity. The practical guidance is one call per
 form, complete field descriptions, and arithmetic in code.
 
+\section*{Acknowledgements}
+We thank Maryam Khalid, physiotherapist, for reviewing the cases.
+
+\section*{Competing interests}
+The reviewer is married to the author.
+
 \section*{Code and data availability}
 
-ADGB v0.2.0, with the 32 cases in both languages, all 1,920 raw sub-call replies, the analysis code and an earlier
+ADGB v0.2.0, with the 32 cases in both languages, all 1,920 raw sub-call replies, the analysis code, the clinician review sheet and an earlier
 synthetic simulator, is archived at \url{https://doi.org/10.5281/zenodo.24167596} and developed at
 \url{https://github.com/MHKhan50/agent-decomposition-granularity-benchmark}. All cases are invented; no patient data
 were used.
