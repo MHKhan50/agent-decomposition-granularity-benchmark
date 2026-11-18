@@ -77,7 +77,7 @@ What the run shows:
 
 The test of the fee explanation is a rerun with the field described as "before any discount"; that is planned and not part of these results.
 
-## Clarified fee rerun (planned)
+## Clarified fee rerun (optional)
 
 The main loss on chained forms traced to the field "fee per session", which did not say "before any discount".
 `rerun_clarified_fee.py` repeats the 16 chained cases for both models, both note languages and all four

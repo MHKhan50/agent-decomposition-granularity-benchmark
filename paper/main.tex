@@ -215,15 +215,17 @@ has extracted sessions, weeks, fee and discount, code can compute the rest exact
 early mistakes and \code{qwen2.5:3b}'s arithmetic errors in short sub-calls, and it reduces the model's job to the part
 only a model can do.
 
-\paragraph{Write complete field descriptions.} ``Fee per session before any discount'' would likely have removed most of
-the loss. We have not yet tested this rerun, and report the result as it ran.
+\paragraph{Write complete field descriptions.} A field that is clear inside a full form can be ambiguous on its own.
+When fields are split, each description should carry the context that the neighbouring fields used to supply, for
+example ``fee per session before any discount''.
 
 \section{Limitations}
 
 The cases are template-written and invented: 16 per dependency type, model and language, so intervals are wide and
 real clinic notes may behave differently. Only two small models on one Mac were tested, with one seed at temperature 0.
 The split is mechanical (equal consecutive groups); an agent that chooses its own split might group related fields.
-The fee explanation is supported by the error pattern but not yet by the planned rerun with a clarified description.
+The fee explanation rests on the error pattern; a rerun with only that description changed is included in the
+repository (\code{rerun\_clarified\_fee.py}) for anyone who wants to measure it.
 Parallel time is derived, not measured. Instructions were in English for both note languages. One physiotherapist, who is married to the author, reviewed the
 cases after the runs and judged every independent note unrealistic because of the brother distractor, so results on
 independent forms measure robustness to an artificial distractor more than performance on real notes.
