@@ -77,6 +77,17 @@ What the run shows:
 
 The test of the fee explanation is a rerun with the field described as "before any discount"; that is planned and not part of these results.
 
+## Clarified fee rerun (planned)
+
+The main loss on chained forms traced to the field "fee per session", which did not say "before any discount".
+`rerun_clarified_fee.py` repeats the 16 chained cases for both models, both note languages and all four
+granularities (960 sub-calls) with only that description changed, and writes to `results_clarified_fee/`:
+
+```bash
+python3 rerun_clarified_fee.py
+python3 analysis.py --results results_clarified_fee --tasks results_clarified_fee/tasks_chained.jsonl
+```
+
 ## Synthetic simulator
 
 A separate, standard-library-only simulator compares fixed splits, a hand-written heuristic and a small neural classifier that picks among 1, 2, 4 and 8 subtasks. Its costs come from equations in `adgb/simulator.py` and it calls no model. It shows whether a policy can learn the simulator's trade-offs and says nothing about real agents.
