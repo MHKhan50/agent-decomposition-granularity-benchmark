@@ -12,7 +12,7 @@
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={When Splitting Hurts: Task Decomposition for Small Local LLMs Filling Clinic Forms in English and Roman Urdu},pdfauthor={Muzammal Hussain}}
+\hypersetup{pdftitle={When Splitting Hurts: Task Decomposition for Small Local LLMs Filling Clinic Forms in English and Roman Urdu},pdfauthor={Muzammal Hussain and Maryam Khalid}}
 \usepackage{caption}
 \captionsetup{font=small,labelfont=bf}
 
@@ -20,10 +20,11 @@
 \setlength{\emergencystretch}{3em}
 
 \title{\textbf{When Splitting Hurts: Task Decomposition for Small Local\\LLMs Filling Clinic Forms in English and Roman Urdu}}
-\author{Muzammal Hussain\\
-\small Independent researcher, Glasgow, United Kingdom\\
-\small \href{mailto:muzammal@masmatixinnovations.co.uk}{muzammal@masmatixinnovations.co.uk}\\
-\small ORCID: \href{https://orcid.org/0009-0001-2570-5686}{0009-0001-2570-5686}}
+\author{Muzammal Hussain$^{1}$ \and Maryam Khalid$^{2}$\\[4pt]
+\small $^{1}$Independent researcher, Glasgow, United Kingdom\\
+\small $^{2}$Physiotherapist, Glasgow, United Kingdom\\
+\small Correspondence: \href{mailto:muzammal@masmatixinnovations.co.uk}{muzammal@masmatixinnovations.co.uk}\\
+\small ORCID (M.\ Hussain): \href{https://orcid.org/0009-0001-2570-5686}{0009-0001-2570-5686}}
 \date{\small November 2026}
 
 \begin{document}
@@ -100,7 +101,7 @@ is derived from the sequential run, not measured. Intervals are 95\% percentile 
 (2,000 resamples)~\cite{efron1993bootstrap}; comparisons with one call and between languages are paired on the same
 cases.
 
-\paragraph{Clinician review.} After the runs, a physiotherapist read all 32 cases in both languages with the expected form values. She marked every expected value correct and both notes of every case equal in facts. She judged the 16 chained (billing) notes realistic and, in all 16, found ``fee per session'' clear without the discount when the whole note is read. She judged none of the 16 independent notes realistic: every comment names the distractor line about the patient's brother's age and earlier fee, which would not appear in a real physiotherapy note.
+\paragraph{Clinician review.} After the runs, a physiotherapist (M.K.) read all 32 cases in both languages with the expected form values. She marked every expected value correct and both notes of every case equal in facts. She judged the 16 chained (billing) notes realistic and, in all 16, found ``fee per session'' clear without the discount when the whole note is read. She judged none of the 16 independent notes realistic: every comment names the distractor line about the patient's brother's age and earlier fee, which would not appear in a real physiotherapy note.
 
 \section{Results}
 
@@ -226,7 +227,7 @@ real clinic notes may behave differently. Only two small models on one Mac were 
 The split is mechanical (equal consecutive groups); an agent that chooses its own split might group related fields.
 The fee explanation rests on the error pattern; a rerun with only that description changed is included in the
 repository (\code{rerun\_clarified\_fee.py}) for anyone who wants to measure it.
-Parallel time is derived, not measured. Instructions were in English for both note languages. One physiotherapist, who is married to the author, reviewed the
+Parallel time is derived, not measured. Instructions were in English for both note languages. One physiotherapist, a co-author, reviewed the
 cases after the runs and judged every independent note unrealistic because of the brother distractor, so results on
 independent forms measure robustness to an artificial distractor more than performance on real notes.
 
@@ -238,11 +239,11 @@ because a fee field read in isolation lost the context that defined it, and the 
 computed from it. Roman Urdu notes made extraction harder at every granularity. The practical guidance is one call per
 form, complete field descriptions, and arithmetic in code.
 
-\section*{Acknowledgements}
-We thank Maryam Khalid, physiotherapist, for reviewing the cases.
+\section*{Author contributions}
+M.\ Hussain designed the study, wrote the code, ran the experiments and wrote the paper. M.\ Khalid, a physiotherapist, reviewed the cases.
 
 \section*{Competing interests}
-The reviewer is married to the author.
+The authors are married. M.\ Khalid took part in her own time.
 
 \section*{Code and data availability}
 
