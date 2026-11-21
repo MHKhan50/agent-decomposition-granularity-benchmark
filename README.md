@@ -121,4 +121,15 @@ The cases are template-written and invented, 32 per model and language, so inter
 
 ## Citation and licence
 
+```bibtex
+@misc{hussain2026splitting,
+  author    = {Hussain, Muzammal and Khalid, Maryam},
+  title     = {{When Splitting Hurts: Task Decomposition for Small Local LLMs Filling Clinic Forms in English and Roman Urdu}},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24167596},
+  url       = {https://doi.org/10.5281/zenodo.24167596}
+}
+```
+
 See `CITATION.cff`. Code is under the MIT licence (`LICENSE`).
