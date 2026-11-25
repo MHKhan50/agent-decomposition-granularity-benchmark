@@ -127,9 +127,11 @@ The cases are template-written and invented, 32 per model and language, so inter
   title     = {{When Splitting Hurts: Task Decomposition for Small Local LLMs Filling Clinic Forms in English and Roman Urdu}},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.24167596},
-  url       = {https://doi.org/10.5281/zenodo.24167596}
+  doi       = {10.5281/zenodo.24508529},
+  url       = {https://doi.org/10.5281/zenodo.24508529}
 }
 ```
+
+Software (code, notebooks, results): [doi:10.5281/zenodo.24167596](https://doi.org/10.5281/zenodo.24167596).
 
 See `CITATION.cff`. Code is under the MIT licence (`LICENSE`).
